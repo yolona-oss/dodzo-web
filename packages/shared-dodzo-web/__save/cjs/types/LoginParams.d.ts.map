@@ -1,0 +1,1 @@
+{"version":3,"file":"LoginParams.d.ts","sourceRoot":"","sources":["../../../src/types/LoginParams.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,gBAAgB;IAC7B,KAAK,EAAE,MAAM,CAAC;IACd,QAAQ,EAAE,MAAM,CAAC;CACpB;AAED,MAAM,WAAW,cAAc;IAC3B,GAAG,EAAE,MAAM,CAAC;CACf"}

@@ -1,0 +1,24 @@
+{
+    "name": "dodzo-web",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build:shared": "cd packages/shared-dodzo-web && npm run build",
+        "start:backend": "cd backend && npm run start:dev",
+        "start:frontend": "cd frontend && npm run dev"
+    },
+    "workspaces": [
+        "packages/*",
+        "frontend",
+        "backend"
+    ],
+    "devDependencies": {
+        "@types/node": "^22",
+        "turbo": "^2.5.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "class-transformer": "^0.5.1",
+        "mysql2": "^3.14.3"
+    }
+}

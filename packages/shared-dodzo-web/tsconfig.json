@@ -1,0 +1,25 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "CommonJS",
+        "baseUrl": "./src",
+        "outDir": "./dist",
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "jsx": "preserve",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./src/*"],
+        }
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"]
+}
