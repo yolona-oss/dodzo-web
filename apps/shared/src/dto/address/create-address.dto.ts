@@ -1,0 +1,31 @@
+import { IsInt, IsOptional, IsString } from 'class-validator';
+
+export class CreateAddressDto {
+    @IsString()
+    country!: string;
+
+    @IsString()
+    city!: string;
+
+    @IsString()
+    street!: string;
+
+    @IsInt()
+    house!: number;
+
+    @IsOptional()
+    @IsInt()
+    building?: number;
+
+    @IsOptional()
+    @IsInt()
+    floor?: number;
+
+    @IsOptional()
+    @IsInt()
+    room?: number;
+
+    @IsOptional()
+    @IsString()
+    postalCode?: string;
+}

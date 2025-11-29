@@ -3,14 +3,12 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build:shared": "cd packages/shared-dodzo-web && npm run build",
-        "start:backend": "cd backend && npm run start:dev",
-        "start:frontend": "cd frontend && npm run dev"
+        "build:shared": "cd apps/shared && npm run build",
+        "start:backend": "cd apps/api && npm run start:dev",
+        "start:frontend": "cd apps/web && npm run dev"
     },
     "workspaces": [
-        "packages/*",
-        "frontend",
-        "backend"
+        "apps/*"
     ],
     "devDependencies": {
         "@types/node": "^22",
@@ -18,6 +16,7 @@
         "typescript": "^5.0.0"
     },
     "dependencies": {
+        "@dotenvx/dotenvx": "^1.51.0",
         "class-transformer": "^0.5.1",
         "mysql2": "^3.14.3"
     }

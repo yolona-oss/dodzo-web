@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/worker/package*.json ./apps/worker/
+COPY apps/shared/package*.json ./apps/shared/
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Create data directory
+RUN mkdir -p /app/data
+
+# Build shared library and worker
+RUN npm run build --workspace=apps/shared
+RUN npm run build --workspace=apps/worker
+
+CMD ["npm", "run", "start", "--workspace=apps/worker"]

@@ -1,0 +1,5 @@
+[ ] product search by ingridients and creating cart by requested ingridiens and amount
+[-] Sales, vouchers, cart rules, giftcards.
+[ ] add caches
+[ ] consignment actual and planned difference
+[ ] add to restaurant manager role auth to crud for only assigned restaurant

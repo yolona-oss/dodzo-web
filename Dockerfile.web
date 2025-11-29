@@ -1,0 +1,22 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/web/package*.json ./apps/web/
+COPY apps/shared/package*.json ./apps/shared/
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build shared library and Next.js app
+RUN npm run build --workspace=apps/shared
+RUN npm run build --workspace=apps/web
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start", "--workspace=apps/web"]

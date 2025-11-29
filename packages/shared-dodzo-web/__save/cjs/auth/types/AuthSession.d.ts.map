@@ -1,1 +1,0 @@
-{"version":3,"file":"AuthSession.d.ts","sourceRoot":"","sources":["../../../../src/auth/types/AuthSession.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,YAAY,CAAC;AAEvC,MAAM,WAAW,YAAY;IACzB,IAAI,EAAE,SAAS,CAAC;IAChB,YAAY,EAAE,MAAM,CAAC;CACxB"}

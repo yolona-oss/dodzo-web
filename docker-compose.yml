@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: nestjs-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - /data/postgres:/data/postgres
+    env_file:
+      - .env
+    networks:
+      - postgres
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    volumes:
+      - .:/app
+      - shared_data:/app/data
+      - /app/node_modules
+    command: npm run dev --workspace=apps/api
+
+    # worker:
+    #   build:
+    #     context: .
+    #     dockerfile: Dockerfile.worker
+    #   environment:
+    #     - NODE_ENV=development
+    #     - REDIS_URL=redis://redis:6379
+    #     - DATABASE_URL=file:/app/data/sqlite.db
+    #   depends_on:
+    #     - redis
+    #   volumes:
+    #     - .:/app
+    #     - shared_data:/app/data
+    #     - /app/node_modules
+    #   command: npm run dev --workspace=apps/worker
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+    depends_on:
+      - api
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev --workspace=apps/web
+
+volumes:
+  shared_data:

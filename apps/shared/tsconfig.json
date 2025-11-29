@@ -1,0 +1,25 @@
+{
+    // "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "CommonJS",
+        "baseUrl": "./",
+        "outDir": "./dist",
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        // "jsx": "preserve",
+        "paths": {
+            // "@/*": ["./src/*"],
+            "@dodzo-web/shared/*": ["./src/*"]
+        }
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"]
+}
